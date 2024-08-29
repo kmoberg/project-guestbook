@@ -26,3 +26,7 @@
 > * `AWS_S3_SECRET_KEY`
 
 
+## Running the container
+To run the container locally (assuming you have a `.env` file, run:
+
+`docker run --env-file ./.env -it -p 8000:8000 projectguestbook`
