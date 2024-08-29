@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load custom_tags %}
+
+{% block title %}
+    View Guestbook
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto mt-24">
+    <h1 class="text-4xl font-bold mb-6">Guestbook</h1>
+
+    {% if not entries %}
+    <p>No entries yet. Be the first to leave a message!</p>
+    {% endif %}
+
+    {% for entry in entries %}
+    <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+        <p class="text-xl font-semibold">{{ entry.name }}</p>
+        <p class="text-gray-700">{{ entry.message }}</p>
+        <p class="text-sm text-gray-500">{{ entry.created_at|date:"F j, Y, g:i a" }}</p>
+        <p class="text-yellow-500">
+            <!-- Filled stars -->
+            {% for i in entry.rating|get_range %}
+                <i class="fas fa-star"></i>
+            {% endfor %}
+            <!-- Unfilled stars -->
+            {% for i in entry.unfilled_stars|get_range %}
+                <i class="far fa-star"></i>
+            {% endfor %}
+        </p>
+    </div>
+    {% endfor %}
+</div>
+
+    <!-- Display the environment -->
+    <p class="text-sm text-gray-500 mt-4">
+        Environment: {{ environment }} <br />
+        Data Store: {{ data_store }}
+    </p>
+{% endblock %}

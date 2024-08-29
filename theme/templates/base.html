@@ -1,0 +1,36 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>
+        Project Guestbook - {% block title %}{% endblock %}
+    </title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+		{% tailwind_css %}
+
+	</head>
+
+	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
+        <!-- Absolute Positioned Logo and Title in the Top-Left of the Window -->
+        <div class="fixed top-0 left-0 flex items-center p-4 z-50">
+            <!-- Logo -->
+            <img src="{% static 'guestbook/ACME_Corporation.webp' %}" alt="ACME Corporation Logo" class="h-auto w-2
+            mr-4" width="200px">
+            <!-- Company Slogan -->
+            <h1 class="text-xl font-bold pt-5">Delivering solutions to your problems anywhere anytime!</h1>
+        </div>
+
+		<div class="container mx-auto mt-24">
+			<section>
+                {% block content %}
+                {% endblock %}
+			</section>
+		</div>
+	</body>
+</html>
