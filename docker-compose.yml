@@ -1,0 +1,17 @@
+services:
+  web:
+    build: .
+    image: projectguestbook
+    command: runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    depends_on:
+      - migration
+    env_file:
+      - ./.env
+  migration:
+    image: projectguestbook
+    command: migrate --noinput
+    env_file:
+      - ./.env
+
