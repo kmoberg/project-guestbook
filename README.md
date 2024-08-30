@@ -8,8 +8,7 @@
 > 
 > The required variables include:
 > 
-> * `SECRET_KEY` A random Django secret key. See [Django Documentation: Secret Key](https://docs.djangoproject.com/en/5.
-    > 1/ref/settings/#std-setting-SECRET_KEY)
+> * `SECRET_KEY` A random Django secret key. See [Django Documentation: Secret Key](https://docs.djangoproject.com/en/5.1/ref/settings/#std-setting-SECRET_KEY)
 > * `ENVIRONMENT` Defaults to "development"
 > * `ALLOWED_HOSTS` Can be set to `*`
 
